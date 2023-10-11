@@ -7,12 +7,25 @@ const props = defineProps({
 </script>
 
 <template>
-  <div v-for="(item, index) in items" :key="item">
-    <h3>{{ item.title }}</h3>
-    <ul>
-      <li v-for="(check, checkIndex) in item.checks" :key="checkIndex">
-        {{ check }}
-      </li>
-    </ul>
+  <div class="container-fluid p-0">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" v-for="(item, index) in items" :key="index">
+        <div class="card w-100 h-100">
+          <div class="card-body">
+            <h3 class="card-title">{{ item.title }}</h3>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item"
+                v-for="(check, checkIndex) in item.checks"
+                :key="checkIndex"
+              >
+                <input type="checkbox" checked disabled />
+                {{ check }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
