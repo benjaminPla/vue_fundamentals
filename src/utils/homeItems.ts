@@ -1,7 +1,4 @@
-export interface IHomeItems {
-  title: string;
-  checks: string[];
-}
+import { IHomeItems } from "../interfaces";
 
 export const homeItems: IHomeItems[] = [
   {
