@@ -1,23 +1,14 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { useStore } from "vuex";
 import { IProduct } from "../interfaces";
 
-const data: ref<Array<IProduct>> = ref([]);
+const store = useStore();
+
+const data: IProduct[] = computed(() => store.state.products);
 const showMore = ref<string>("");
 
-const url: string = "https://fakestoreapi.com/products";
-const fetchData = async (url: string): Promise<void> => {
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
-    data.value = result;
-  } catch (error) {
-    console.error(error);
-    data.value = [];
-  }
-};
-
-onMounted(() => fetchData(url));
+onMounted(() => store.dispatch("getProducts"));
 </script>
 
 <template>
