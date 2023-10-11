@@ -1,3 +1,5 @@
+import { ActionContext } from "vuex";
+
 export interface IProduct {
   id: number;
   title: string;
@@ -14,4 +16,22 @@ export interface IProduct {
 export interface IHomeItems {
   title: string;
   checks: string[];
+}
+
+interface IState {
+  apiUrl: string;
+  error?: string;
+  products: IProduct[];
+}
+interface IMutations {
+  setProducts(state: State, payload: any): void;
+  setError(state: State, error: string): void;
+}
+interface IActions {
+  getProducts(context: ActionContext<State, State>): void;
+}
+export interface IStore {
+  state: IState;
+  mutations: IMutations;
+  actions: IActions;
 }
