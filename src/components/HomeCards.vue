@@ -7,8 +7,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="container-fluid p-0">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-3 g-4 pb-4">
       <div class="col" v-for="(item, index) in items" :key="index">
         <div class="card w-100 h-100">
           <div class="card-body">
